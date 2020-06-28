@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head><title>Sudoke</title>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+    width:0.5%;
+    maxlength:"10";
+    size:"10";
+}
+    input {
+        color: #000000;
+        padding: 0;
+        border: 0;
+        text-align: center;
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+        background-color: #FFFFFF;
+        outline: none;
+      }
+
+      input:disabled {
+        background-color: #EEEEEE;
+      }
+      button {
+           background-color: #0ecaec;
+           width: 10%;
+            color: #ad060c;
+            padding: 15px;
+            margin: 10px 0px;
+            border: none;
+            cursor: pointer;
+        text-align: center;
+             }
+    body{
+        text-align: center;
+    }
+</style></head>
+<body><form action="/result" method="POST">
+<h3>Enter only numbers from 1 to 9</h3>
+<table style="height:50%;margin-left:30%;margin-top:8%">
+  <tr>
+      {% if board[0][0]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[0][0] }}</td>
+          {% else %}
+                <td><input type="text" name="00"> </td>
+      {% endif %}
+      {% if board[0][1]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[0][1] }}</td>
+          {% else %}
+                <td><input type="text" name="01"> </td>
+  {% endif %}
+      {% if board[0][2]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[0][2] }}</td>
+          {% else %}
+                <td><input type="text" name="02"> </td>
+      {% endif %}
+      {% if board[0][3]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[0][3] }}</td>
+          {% else %}
+                <td><input type="text" name="03"> </td>
+      {% endif %}
+      {% if board[0][4]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[0][4] }}</td>
+          {% else %}
+                <td><input type="text" name="04"> </td>
+      {% endif %}
+      {% if board[0][5]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[0][5] }}</td>
+          {% else %}
+                <td><input type="text" name="05"> </td>
+      {% endif %}
+      {% if board[0][6]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[0][6] }}</td>
+          {% else %}
+                <td><input type="text" name="06"> </td>
+      {% endif %}
+      {% if board[0][7]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[0][7] }}</td>
+          {% else %}
+                <td><input type="text" name="07"> </td>
+      {% endif %}
+      {% if board[0][8]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[0][8] }}</td>
+          {% else %}
+                <td><input type="text" name="08"> </td>
+      {% endif %}
+  </tr>
+<tr>
+      {% if board[1][0]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[1][0] }}</td>
+          {% else %}
+                <td><input type="text" name="10"> </td>
+      {% endif %}
+      {% if board[1][1]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[1][1] }}</td>
+          {% else %}
+                <td><input type="text" name="11"> </td>
+  {% endif %}
+      {% if board[1][2]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[1][2] }}</td>
+          {% else %}
+                <td><input type="text" name="12"> </td>
+      {% endif %}
+      {% if board[1][3]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[1][3] }}</td>
+          {% else %}
+                <td><input type="text" name="13"> </td>
+      {% endif %}
+      {% if board[1][4]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[1][4] }}</td>
+          {% else %}
+                <td><input type="text" name="14"> </td>
+      {% endif %}
+      {% if board[1][5]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[1][5] }}</td>
+          {% else %}
+                <td><input type="text" name="15"> </td>
+      {% endif %}
+      {% if board[1][6]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[1][6] }}</td>
+          {% else %}
+                <td><input type="text" name="16"> </td>
+      {% endif %}
+      {% if board[1][7]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[1][7] }}</td>
+          {% else %}
+                <td><input type="text" name="17"> </td>
+      {% endif %}
+      {% if board[1][8]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[1][8] }}</td>
+          {% else %}
+                <td><input type="text" name="18"> </td>
+      {% endif %}
+  </tr>
+<tr>
+      {% if board[2][0]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[2][0] }}</td>
+          {% else %}
+                <td><input type="text" name="20"> </td>
+      {% endif %}
+      {% if board[2][1]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[2][1] }}</td>
+          {% else %}
+                <td><input type="text" name="21"> </td>
+  {% endif %}
+      {% if board[2][2]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[2][2] }}</td>
+          {% else %}
+                <td><input type="text" name="22"> </td>
+      {% endif %}
+      {% if board[2][3]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[2][3] }}</td>
+          {% else %}
+                <td><input type="text" name="23"> </td>
+      {% endif %}
+      {% if board[2][4]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[2][4] }}</td>
+          {% else %}
+                <td><input type="text" name="24"> </td>
+      {% endif %}
+      {% if board[2][5]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[2][5] }}</td>
+          {% else %}
+                <td><input type="text" name="25"> </td>
+      {% endif %}
+      {% if board[2][6]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[2][6] }}</td>
+          {% else %}
+                <td><input type="text" name="26"> </td>
+      {% endif %}
+      {% if board[2][7]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[2][7] }}</td>
+          {% else %}
+                <td><input type="text" name="27"> </td>
+      {% endif %}
+      {% if board[2][8]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[2][8] }}</td>
+          {% else %}
+                <td><input type="text" name="28"> </td>
+      {% endif %}
+  </tr>
+<tr>
+      {% if board[3][0]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[3][0] }}</td>
+          {% else %}
+                <td><input type="text" name="30"> </td>
+      {% endif %}
+      {% if board[3][1]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[3][1] }}</td>
+          {% else %}
+                <td><input type="text" name="31"> </td>
+  {% endif %}
+      {% if board[3][2]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[3][2] }}</td>
+          {% else %}
+                <td><input type="text" name="32"> </td>
+      {% endif %}
+      {% if board[3][3]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[3][3] }}</td>
+          {% else %}
+                <td><input type="text" name="33"> </td>
+      {% endif %}
+      {% if board[3][4]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[3][4] }}</td>
+          {% else %}
+                <td><input type="text" name="34"> </td>
+      {% endif %}
+      {% if board[3][5]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[3][5] }}</td>
+          {% else %}
+                <td><input type="text" name="35"> </td>
+      {% endif %}
+      {% if board[3][6]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[3][6] }}</td>
+          {% else %}
+                <td><input type="text" name="36"> </td>
+      {% endif %}
+      {% if board[3][7]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[3][7] }}</td>
+          {% else %}
+                <td><input type="text" name="37"> </td>
+      {% endif %}
+      {% if board[3][8]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[3][8] }}</td>
+          {% else %}
+                <td><input type="text" name="38"> </td>
+      {% endif %}
+  </tr>
+<tr>
+      {% if board[4][0]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[4][0] }}</td>
+          {% else %}
+                <td><input type="text" name="40"> </td>
+      {% endif %}
+      {% if board[4][1]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[4][1] }}</td>
+          {% else %}
+                <td><input type="text" name="41"> </td>
+  {% endif %}
+      {% if board[4][2]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[4][2] }}</td>
+          {% else %}
+                <td><input type="text" name="42"> </td>
+      {% endif %}
+      {% if board[4][3]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[4][3] }}</td>
+          {% else %}
+                <td><input type="text" name="43"> </td>
+      {% endif %}
+      {% if board[4][4]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[4][4] }}</td>
+          {% else %}
+                <td><input type="text" name="44"> </td>
+      {% endif %}
+      {% if board[4][5]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[4][5] }}</td>
+          {% else %}
+                <td><input type="text" name="45"> </td>
+      {% endif %}
+      {% if board[4][6]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[4][6] }}</td>
+          {% else %}
+                <td><input type="text" name="46"> </td>
+      {% endif %}
+      {% if board[4][7]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[4][7] }}</td>
+          {% else %}
+                <td><input type="text" name="47"> </td>
+      {% endif %}
+      {% if board[4][8]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[4][8] }}</td>
+          {% else %}
+                <td><input type="text" name="48"> </td>
+      {% endif %}
+  </tr>
+<tr>
+      {% if board[5][0]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[5][0] }}</td>
+          {% else %}
+                <td><input type="text" name="50"> </td>
+      {% endif %}
+      {% if board[5][1]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[5][1] }}</td>
+          {% else %}
+                <td><input type="text" name="51"> </td>
+  {% endif %}
+      {% if board[5][2]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[5][2] }}</td>
+          {% else %}
+                <td><input type="text" name="52"> </td>
+      {% endif %}
+      {% if board[5][3]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[5][3] }}</td>
+          {% else %}
+                <td><input type="text" name="53"> </td>
+      {% endif %}
+      {% if board[5][4]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[5][4] }}</td>
+          {% else %}
+                <td><input type="text" name="54"> </td>
+      {% endif %}
+      {% if board[5][5]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[5][5] }}</td>
+          {% else %}
+                <td><input type="text" name="55"> </td>
+      {% endif %}
+      {% if board[5][6]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[5][6] }}</td>
+          {% else %}
+                <td><input type="text" name="56"> </td>
+      {% endif %}
+      {% if board[5][7]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[5][7] }}</td>
+          {% else %}
+                <td><input type="text" name="57"> </td>
+      {% endif %}
+      {% if board[5][8]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[5][8] }}</td>
+          {% else %}
+                <td><input type="text" name="58"> </td>
+      {% endif %}
+  </tr>
+<tr>
+      {% if board[6][0]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[6][0] }}</td>
+          {% else %}
+                <td><input type="text" name="60"> </td>
+      {% endif %}
+      {% if board[6][1]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[6][1] }}</td>
+          {% else %}
+                <td><input type="text" name="61"> </td>
+  {% endif %}
+      {% if board[6][2]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[6][2] }}</td>
+          {% else %}
+                <td><input type="text" name="62"> </td>
+      {% endif %}
+      {% if board[6][3]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[6][3] }}</td>
+          {% else %}
+                <td><input type="text" name="63"> </td>
+      {% endif %}
+      {% if board[6][4]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[6][4] }}</td>
+          {% else %}
+                <td><input type="text" name="64"> </td>
+      {% endif %}
+      {% if board[6][5]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[6][5] }}</td>
+          {% else %}
+                <td><input type="text" name="65"> </td>
+      {% endif %}
+      {% if board[6][6]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[6][6] }}</td>
+          {% else %}
+                <td><input type="text" name="66"> </td>
+      {% endif %}
+      {% if board[6][7]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[6][7] }}</td>
+          {% else %}
+                <td><input type="text" name="67"> </td>
+      {% endif %}
+      {% if board[6][8]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[6][8] }}</td>
+          {% else %}
+                <td><input type="text" name="68"> </td>
+      {% endif %}
+  </tr>
+<tr>
+      {% if board[7][0]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[7][0] }}</td>
+          {% else %}
+                <td><input type="text" name="70"> </td>
+      {% endif %}
+      {% if board[7][1]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[7][1] }}</td>
+          {% else %}
+                <td><input type="text" name="71"> </td>
+  {% endif %}
+      {% if board[7][2]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[7][2] }}</td>
+          {% else %}
+                <td><input type="text" name="72"> </td>
+      {% endif %}
+      {% if board[7][3]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[7][3] }}</td>
+          {% else %}
+                <td><input type="text" name="73"> </td>
+      {% endif %}
+      {% if board[7][4]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[7][4] }}</td>
+          {% else %}
+                <td><input type="text" name="74"> </td>
+      {% endif %}
+      {% if board[7][5]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[7][5] }}</td>
+          {% else %}
+                <td><input type="text" name="75"> </td>
+      {% endif %}
+      {% if board[7][6]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[7][6] }}</td>
+          {% else %}
+                <td><input type="text" name="76"> </td>
+      {% endif %}
+      {% if board[7][7]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[7][7] }}</td>
+          {% else %}
+                <td><input type="text" name="77"> </td>
+      {% endif %}
+      {% if board[7][8]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[7][8] }}</td>
+          {% else %}
+                <td><input type="text" name="78"> </td>
+      {% endif %}
+  </tr>
+<tr>
+      {% if board[8][0]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[8][0] }}</td>
+          {% else %}
+                <td><input type="text" name="80"> </td>
+      {% endif %}
+      {% if board[8][1]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[8][1] }}</td>
+          {% else %}
+                <td><input type="text" name="81"> </td>
+  {% endif %}
+      {% if board[8][2]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[8][2] }}</td>
+          {% else %}
+                <td><input type="text" name="82"> </td>
+      {% endif %}
+      {% if board[8][3]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[8][3] }}</td>
+          {% else %}
+                <td><input type="text" name="83"> </td>
+      {% endif %}
+      {% if board[8][4]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[8][4] }}</td>
+          {% else %}
+                <td><input type="text" name="84"> </td>
+      {% endif %}
+      {% if board[8][5]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[8][5] }}</td>
+          {% else %}
+                <td><input type="text" name="85"> </td>
+      {% endif %}
+      {% if board[8][6]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[8][6] }}</td>
+          {% else %}
+                <td><input type="text" name="86"> </td>
+      {% endif %}
+      {% if board[8][7]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[8][7] }}</td>
+          {% else %}
+                <td><input type="text" name="87"> </td>
+      {% endif %}
+      {% if board[8][8]!=0 %}
+                <td style="background-color: rgba(160,160,160,0.84)">{{ board[8][8] }}</td>
+          {% else %}
+                <td><input type="text" name="88"> </td>
+      {% endif %}
+  </tr>
+</table>
+    <button type="submit" style="margin-top:2%">Submit</button>
+</form>
+<form action="/tabel" method="POST"><button type="submit" style="margin-top:1%">Refresh</button></form>
+<p>@Giri</p>
+</body>
+</html>
